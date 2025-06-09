@@ -38,21 +38,21 @@ const CheckOut = () => {
   useEffect(() => {
     const getCheckOut = async () => {
       try {
-        const userResponse = await axios.get('https://csjoeportfolio.com/backendapi/users/logstatus');
+        const userResponse = await axios.get('http://localhost:8000/backendapi/users/logstatus');
         const userId = userResponse.data.user_id;
         setUserId(userId);
 
-        const shipresponse = await axios.get(`https://joecsportfolio.com/shipping`, {
+        const shipresponse = await axios.get(`http://localhost:8020/shipping`, {
           params: { user: userId }
         });
         setAddress(shipresponse.data);
 
-        const billresponse = await axios.get(`https://joecsportfolio.com/billing`, {
+        const billresponse = await axios.get(`http://localhost:8020/billing`, {
           params: { user: userId }
         });
         setCard(billresponse.data);
 
-        const cartresponse = await axios.get(`https://joecsportfolio.com/checkout`, {
+        const cartresponse = await axios.get(`http://localhost:8020/checkout`, {
           params: { user: userId }
         });
         if (cartresponse.data.cart_items != null) {
@@ -75,9 +75,9 @@ const CheckOut = () => {
   const clearCart = async () => {
     try {
       const bookIds = buyBook.map(book => ({ book_id: book.book_id }));
-      const response = await axios.post('https://csjoeportfolio.com/backendapi/users/boughtbooks/', bookIds, { withCredentials: true });
+      const response = await axios.post('http://localhost:8000/backendapi/users/boughtbooks/', bookIds, { withCredentials: true });
       if (response.status === 200) {
-        const deleteResponse = await axios.delete(`https://joecsportfolio.com/deleteall`, {
+        const deleteResponse = await axios.delete(`http://localhost:8020/deleteall`, {
           params: { user: userId }
         });
         setBuyBook([]);

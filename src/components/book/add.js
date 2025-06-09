@@ -20,7 +20,7 @@ const Add = (props) => {
   useEffect(() => {
     const fetchLogStatus = async () => {
       try {
-        const response = await axios.get('https://csjoeportfolio.com/backendapi/users/logstatus/');
+        const response = await axios.get('http://localhost:8000/backendapi/users/logstatus/');
         if (response.status === 200) {
           setLoggedIn(true);
         } else {
@@ -38,12 +38,12 @@ const Add = (props) => {
     const fetchData = async () => {
       try {
         // First request
-        const userResponse = await axios.get('https://csjoeportfolio.com/backendapi/users/logstatus');
+        const userResponse = await axios.get('http://localhost:8000/backendapi/users/logstatus');
         const userId = userResponse.data.user_id;
         setUserId(userId);
 
         // Second request, using the userId from the first request
-        const cartResponse = await axios.get('https://joecsportfolio.com/getcartbook', {
+        const cartResponse = await axios.get('http://localhost:8020/getcartbook', {
           params: { id: id, user: userId },
         });
 
@@ -62,7 +62,7 @@ const Add = (props) => {
 
   const addBook = () => {
     axios
-      .post('https://joecsportfolio.com/cart', {
+      .post('http://localhost:8020/cart', {
         user_id: uid,
         book_id: bookId,
         title: buyBook.title,
@@ -82,7 +82,7 @@ const Add = (props) => {
 
   const deleteBook = () => {
     axios
-      .delete(`https://joecsportfolio.com/delete`, {
+      .delete(`http://localhost:8020/delete`, {
         params: { id: id, user: uid },
       })
       .then((response) => {

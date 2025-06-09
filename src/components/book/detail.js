@@ -35,7 +35,7 @@ const Detail = () => {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const response = await axios.get(`https://csjoeportfolio.com/backendapi/books/view/${id}`, { withCredentials: true });
+        const response = await axios.get(`http://localhost:8000/backendapi/books/view/${id}`, { withCredentials: true });
         if (response.status !== 200) {
           throw new Error('Failed to fetch data');
         }

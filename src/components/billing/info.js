@@ -30,15 +30,15 @@ const BillInfo = () => {
   useEffect(() => {
     const getBilling = async () => {
       try {
-        const userResponse = await axios.get('https://csjoeportfolio.com/backendapi/users/logstatus');
+        const userResponse = await axios.get('http://localhost:8000/backendapi/users/logstatus');
         const userId = userResponse.data.user_id;
         setUserId(userId);
 
-        const billingResp = await axios.get('https://joecsportfolio.com/billing', {
+        const billingResp = await axios.get('http://localhost:8020/billing', {
           params: { user: userId }
         });
 
-        const cardsResp = await axios.get('https://joecsportfolio.com/allcard', {
+        const cardsResp = await axios.get('http://localhost:8020/allcard', {
           params: { user: userId }
         });
 
@@ -63,7 +63,7 @@ const BillInfo = () => {
   const setCardClick = (id) => {
     axios
       .put(
-        'https://joecsportfolio.com/updatecard',
+        'http://localhost:8020/updatecard',
         { withCredentials: true },
         { params: { user: userId, id } }
       )

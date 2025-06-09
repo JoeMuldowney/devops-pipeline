@@ -17,7 +17,7 @@ const SavedBook = () => {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const response = await axios.get('https://csjoeportfolio.com/backendapi/users/savedbooks/');
+        const response = await axios.get('http://localhost:8000/backendapi/users/savedbooks/');
         const processedBooks = response.data.books.map(book => ({ ...book }));
         setBooks(processedBooks);
       } catch (error) {

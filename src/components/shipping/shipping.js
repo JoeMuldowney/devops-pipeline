@@ -38,15 +38,15 @@ const Shipping = () => {
   useEffect(() => {
     const getBilling = async () => {
       try {
-        const userResponse = await axios.get('https://csjoeportfolio.com/backendapi/users/logstatus');
+        const userResponse = await axios.get('http://localhost:8000/backendapi/users/logstatus');
         const userId = userResponse.data.user_id;
         setUserId(userId);
 
-        const resp = await axios.get('https://joecsportfolio.com/shipping', {
+        const resp = await axios.get('http://localhost:8020/shipping', {
           params: { user: userId }
         });
 
-        const response = await axios.get('https://joecsportfolio.com/allshipping', {
+        const response = await axios.get('http://localhost:8020/allshipping', {
           params: { user: userId }
         });
 
@@ -66,7 +66,7 @@ const Shipping = () => {
 
   const setAddressClick = (id) => {
     axios
-      .put('https://joecsportfolio.com/updateshipping', { withCredentials: true }, {
+      .put('http://localhost:8020/updateshipping', { withCredentials: true }, {
         params: { user: userId, id }
       })
       .then(() => {

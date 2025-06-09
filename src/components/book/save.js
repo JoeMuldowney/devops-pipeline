@@ -10,7 +10,7 @@ const Save = () => {
   useEffect(() => {
     const checkSavedStatus = () => {
       axios
-        .get(`https://csjoeportfolio.com/backendapi/users/bookstatus/${id}`)
+        .get(`http://localhost:8000/backendapi/users/bookstatus/${id}`)
         .then((response) => {
           if (response.status === 201) {
             // Status 200 indicates that the book is saved
@@ -30,7 +30,7 @@ const Save = () => {
 
   const saveBook = () => {
     axios
-      .post(`https://csjoeportfolio.com/backendapi/users/savebook/${id}`)
+      .post(`http://localhost:8000/backendapi/users/savebook/${id}`)
       .then((response) => {
         console.log(response.data);
         // Update state to reflect that the book is saved
@@ -43,7 +43,7 @@ const Save = () => {
 
   const deleteBook = () => {
     axios
-      .delete(`https://csjoeportfolio.com/backendapi/users/deletebook/${id}`)
+      .delete(`http://localhost:8000/backendapi/users/deletebook/${id}`)
       .then((response) => {
         console.log(response.data);
         // Update state to reflect that the book is deleted

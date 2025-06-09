@@ -18,7 +18,7 @@ const History = () => {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const response = await axios.get('https://csjoeportfolio.com/backendapi/users/boughthistory/');
+        const response = await axios.get('http://localhost:8000/backendapi/users/boughthistory/');
         const processedBooks = response.data.books.map(book => ({ ...book }));
         setBooks(processedBooks);
       } catch (error) {
