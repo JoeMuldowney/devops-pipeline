@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ui-deployment
+  labels:
+    app: reactbookstore
+    tier: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: reactbookstore
+      tier: frontend
+  template:                       
+    metadata:
+      labels:
+        app: reactbookstore
+        tier: frontend
+    spec:
+      containers:
+        - name: react-ui
+          image: joemuldowney/react-ui-microservice:v1
+          ports:
+            - containerPort: 3000
+
+
+

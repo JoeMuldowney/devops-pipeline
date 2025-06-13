@@ -2,7 +2,7 @@
 FROM node:20-alpine
 
 # Set the working directory inside the container
-WORKDIR /dockerapptesting
+WORKDIR /reactapp
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json .
