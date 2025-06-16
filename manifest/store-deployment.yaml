@@ -22,4 +22,7 @@ spec:
           image: joemuldowney/django-microservice-api:v1
           ports:
             - containerPort: 8000
+          envFrom:
+            - secretRef:
+                name: store-api-secret
 
