@@ -1,0 +1,28 @@
+apiVersion: app/v1
+kind: Deployment
+metadata:
+  name: cart-microservice
+  labels:
+    app: cartapi
+    tier: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cartapi
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: cartapi
+        tier: backend
+    spec:
+      containers:
+        - name: cart-app
+          image: joemuldowney/go-cart-microservice:v1
+          ports:
+            - containerPort: 8020
+          envFrom:
+            - secretRef:
+                name: goapp-secret
+
