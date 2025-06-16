@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: cart-app
-          image: joemuldowney/go-cart-microservice:v1
+          image: joemuldowney/go-microservice-api:v1
           ports:
             - containerPort: 8020
           envFrom:
