@@ -5,8 +5,9 @@ metadata:
 spec:
   selector:
     app: cartapi
+    tier: backend
   ports:
     - protocol: TCP
       port: 80
       targetPort: 8020
-  type: NodePort
+  type: ClusterIP

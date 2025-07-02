@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: cart-virtualservice
+  namespace: default
+spec:
+  hosts:
+    - "*"                   # local development
+  gateways:
+    - shared-gateway         # This gateway is deployed once (in interface branch)
+  http:
+    - match:
+        - uri:
+            prefix: /cart   # Incoming path prefix
+      route:
+        - destination:
+            host: cart-service
+            port:
+              number: 80          # Service port
