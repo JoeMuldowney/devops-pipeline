@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: store-virtualservice
+  namespace: default
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - shared-gateway         # This gateway is deployed once (in interface branch)
+  http:
+    - match:
+        - uri:
+            prefix: /store   # Incoming path prefix
+      route:
+        - destination:
+            host: store-service   # Match service name
+            port:
+              number: 80
