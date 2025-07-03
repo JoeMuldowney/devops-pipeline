@@ -11,7 +11,7 @@ spec:
   http:
     - match:
         - uri:
-            prefix: /store   # Incoming path prefix
+            prefix: /backendapi   # Incoming path prefix
       route:
         - destination:
             host: store-service   # Match service name

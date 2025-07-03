@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: store-microservice
-          image: joemuldowney/django-microservice-api:v2
+          image: joemuldowney/django-microservice-api:v3
           ports:
             - containerPort: 8000
           envFrom:
