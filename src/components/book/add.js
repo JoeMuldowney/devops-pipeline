@@ -20,7 +20,7 @@ const Add = (props) => {
   useEffect(() => {
     const fetchLogStatus = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/backendapi/users/logstatus/');
+        const response = await axios.get('http://localhost:8888/backendapi/users/logstatus/');
         if (response.status === 200) {
           setLoggedIn(true);
         } else {
@@ -38,12 +38,12 @@ const Add = (props) => {
     const fetchData = async () => {
       try {
         // First request
-        const userResponse = await axios.get('http://localhost:8000/backendapi/users/logstatus');
+        const userResponse = await axios.get('http://localhost:8888/backendapi/users/logstatus');
         const userId = userResponse.data.user_id;
         setUserId(userId);
 
         // Second request, using the userId from the first request
-        const cartResponse = await axios.get('http://localhost:8020/getcartbook', {
+        const cartResponse = await axios.get('http://localhost:8888/cart/getcartbook', {
           params: { id: id, user: userId },
         });
 

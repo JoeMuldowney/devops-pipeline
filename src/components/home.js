@@ -15,7 +15,7 @@ function Home() {
       e.preventDefault();
        
     axios.post(
-          'http://localhost:8000/backendapi/users/memberlogin/',{ username, password})
+          'http://localhost:8888/backendapi/users/memberlogin/',{ username, password})
         .then(response => {
  
           navigate('/store');

@@ -19,7 +19,7 @@ const Billing = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/backendapi/users/logstatus/');
+        const response = await axios.get('http://localhost:8888/backendapi/users/logstatus/');
         if (response.status === 200) {
           setUserId(response.data.user_id);
         }
@@ -32,7 +32,7 @@ const Billing = () => {
 
   const addCard = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:8020/addcard', {
+    axios.post('http://localhost:8888/cart/addcard', {
       first_name: firstName,
       last_name: lastName,
       card_num: card_num,

@@ -19,7 +19,7 @@ function Profile() {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/backendapi/users/viewprofile/');
+        const response = await axios.get('http://localhost:8888/backendapi/users/viewprofile/');
         const profileData = response.data;
         setProfileDesc(profileData.profileDesc);
         setFavoriteBook(profileData.favoriteBook);
@@ -43,7 +43,7 @@ function Profile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8000/backendapi/users/memberprofile/', {
+      await axios.post('http://localhost:8888/backendapi/users/memberprofile/', {
         profileDesc,
         favoriteBook,
         currentBook,

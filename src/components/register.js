@@ -49,7 +49,7 @@ function Register() {
     } else if (step === 2) {
       try {
         // First API call: Register user
-        const response = await axios.post('http://localhost:8000/backendapi/users/membership/', {
+        const response = await axios.post('http://localhost:8888/backendapi/users/membership/', {
           firstname: formData.firstName,
           lastname: formData.lastName,
           username: formData.username,
@@ -61,7 +61,7 @@ function Register() {
         setUserId(userId);
 
         // Second API call: Register payment
-        await axios.post('http://localhost:8020/membershipcard', {
+        await axios.post('http://localhost:8888/cart/membershipcard', {
           first_name: formData.firstName,
           last_name: formData.lastName,
           card_num: formData.cardNumber,
@@ -74,7 +74,7 @@ function Register() {
           user_id: userId
         });
 
-              await axios.post('http://localhost:8020/address', {
+              await axios.post('http://localhost:8888/cart/address', {
         first_name: formData.firstName,
         last_name: formData.lastName,
         street: formData.street,

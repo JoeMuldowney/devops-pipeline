@@ -14,7 +14,7 @@ function Toolbar() {
   useEffect(() => {
     const fetchLogStatus = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/backendapi/users/logstatus/');
+        const response = await axios.get('http://localhost:8888/backendapi/users/logstatus/');
           setLoggedIn(response.status === 200);
       } catch (error) {
         setLoggedIn(false);
@@ -29,7 +29,7 @@ function Toolbar() {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:8000/backendapi/users/memberlogout/');
+      await axios.post('http://localhost:8888/backendapi/users/memberlogout/');
       setLoggedIn(false);
       window.location.href = '/'; // or use useNavigate if using React Router
     } catch (error) {

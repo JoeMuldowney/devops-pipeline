@@ -37,7 +37,7 @@ function Category() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:8000/backendapi/books/category/${genre}/?page=${currentPage}`
+        `http://localhost:8888/backendapi/books/category/${genre}/?page=${currentPage}`
       );
       if (response.status !== 200) throw new Error('Failed to fetch data');
 
