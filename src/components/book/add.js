@@ -62,7 +62,7 @@ const Add = (props) => {
 
   const addBook = () => {
     axios
-      .post('http://localhost:8020/cart', {
+      .post('http://localhost:8888/cart/cart', {
         user_id: uid,
         book_id: bookId,
         title: buyBook.title,
@@ -82,7 +82,7 @@ const Add = (props) => {
 
   const deleteBook = () => {
     axios
-      .delete(`http://localhost:8020/delete`, {
+      .delete(`http://localhost:8888/cart/delete`, {
         params: { id: id, user: uid },
       })
       .then((response) => {
