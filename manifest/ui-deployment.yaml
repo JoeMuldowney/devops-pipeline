@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: react-ui
-          image: joemuldowney/react-ui-microservice:v2
+          image: joemuldowney/react-ui-microservice:v3
           ports:
             - containerPort: 3000
 
